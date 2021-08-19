@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Static/css/browse.css">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Workshops</title>
+    <script src="../JS/filter.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            //Learning Resource Type Filter
+            document.querySelector('#interactive').onkeypress = function () {
+                document.querySelector('#interactive').click();
+            }
+            document.querySelector('#infographic').onkeypress = function () {
+                document.querySelector('#infographic').click();
+            }
+            document.querySelector('#handout').onkeypress = function () {
+                document.querySelector('#handout').click();
+            }
+            document.querySelector('#presentation').onkeypress = function () {
+                document.querySelector('#presentation').click();
+            }
+
+            //Audience Filter
+            document.querySelector('#undergraduate').onkeypress = function () {
+                document.querySelector('#undergraduate').click();
+            }
+            document.querySelector('#faculty').onkeypress = function () {
+                document.querySelector('#faculty').click();
+            }
+            document.querySelector('#graduate').onkeypress = function () {
+                document.querySelector('#graduate').click();
+            }
+            document.querySelector('#staff').onkeypress = function () {
+                document.querySelector('#staff').click();
+            }
+
+            //Subject Filter
+            document.querySelector('#research').onkeypress = function () {
+                document.querySelector('#research').click();
+            }
+            document.querySelector('#databases').onkeypress = function () {
+                document.querySelector('#databases').click();
+            }
+            document.querySelector('#economics').onkeypress = function () {
+                document.querySelector('#economics').click();
+            }
+            document.querySelector('#stem').onkeypress = function () {
+                document.querySelector('#stem').click();
+            }
+
+
+        });
+    </script>
+
+
+</head>
+
+<body>
+    <!--NavBar using Bootstrap-->
+    <nav style="background-color: #DFDFDF;" class="navbar navbar-expand-md navbar-light bg-medium">
+        <a href="/index.html" class="navbar-brand">
+            <img src="../Static/Images/header_logo.png" height="35" alt="Logo">
+        </a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a href="/index.html" class="nav-item nav-link">Home</a>
+                <a href="Browse.html" class="nav-item nav-link active">Browse Content</a>
+                <a href="About_Us.html" class="nav-item nav-link">About</a>
+                <a href="Contact.html" class="nav-item nav-link">Contact/Help</a>
+            </div>
+        </div>
+    </nav>
+
+    <div style="width: 100%; display: flex;">
+        <div style="display: block; width: 25%; height: 15px; background-color: #FFFFAA;"></div>
+        <div style="display: block; width: 25%; height: 15px; background-color: #FFEA3D;"></div>
+        <div style="display: block; width: 25%; height: 15px; background-color: #FFD54F;"></div>
+        <div style="display: block; width: 25%; height: 15px; background-color: #E4B429;"></div>
+    </div>
+
+    <!--Header-->
+    <div style="height: 300px; max-width: 100%;">
+        <img style="height: 300px; width: 100%;" src="../Static/Images/header image.png">
+        <div style="position: absolute; top: 96px; left: 112px;">
+            <h1 style="font-size: 100px; color: rgb(255, 255, 255);">SciComm</h1>
+        </div>
+        <div style="position: absolute; top: 208px; left: 112px;">
+            <h1 style="font-size: 100px; color: rgb(255, 255, 255);">Workshops</h1>
+        </div>
+    </div>
+
+    <div style="width: 100%; display: flex;">
+        <div style="display: block; width: 25%; height: 15px; background-color: #FFFFAA;"></div>
+        <div style="display: block; width: 25%; height: 15px; background-color: #FFEA3D;"></div>
+        <div style="display: block; width: 25%; height: 15px; background-color: #FFD54F;"></div>
+        <div style="display: block; width: 25%; height: 15px; background-color: #E4B429;"></div>
+    </div>
+
+    <div style="border-bottom: 1px solid black; border-top: 1px solid black; border-left: 1px solid black;
+    border-right: 1px solid black; width: fit-content; height: fit-content; margin: auto; margin-top: 30px;
+    background-color: #FFFFAA;">
+        <h4 style="padding-left: 15px; padding-right: 15px; padding-top: 5px;">Welcome to SciComm Workshops. This
+            resource is still in development
+            <a href="mailto:techdiscountmango@gmail.com">Tell us
+            </a> what you think.
+        </h4>
+    </div>
+
+    <!--Course Section/Selection Page (Title)-->
+    <h1 style="text-align:center; margin-top: 30px;">Click to select your courses!</h1>
+
+    <div style="width: auto; height: fit-content;">
+
+        <div style="margin: auto; width: fit-content; height: fit-content; display: flex;">
+
+            <div style="height: 100%; width: 300px; display: inline-block; margin-right: 20px;">
+
+                <div style="margin-top: 7%">
+                    <!--Learning Resource Type Filter-->
+                    <div style="background-color: #DFDFDF; width: 300px; height: 200px; margin-bottom: 25px;">
+                        <h5 style="padding-left: 20px; padding-top: 10px">Learning Resource Type</h5>
+
+                        <div class="resource" style="padding-left: 35px">
+                            <div class="checkbox">
+                                <label>
+                                    <input id="interactive" type="checkbox" rel="interactive" onchange="change();">
+                                    Interactive Course
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="infographic" type="checkbox" rel="infographic" onchange="change();">
+                                    Infographic
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="handout" type="checkbox" rel="handout" onchange="change();">
+                                    Handout
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="presentation" type="checkbox" rel="presentation" onchange="change();">
+                                    Presentation Slides
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Audience Filter-->
+                    <div style="background-color: #DFDFDF; width: 300px; height: 200px; margin-bottom: 25px;">
+                        <h5 style="padding-left: 20px; padding-top: 10px">Audience</h5>
+
+                        <div class="audience" style="padding-left: 35px">
+                            <div class="checkbox">
+                                <label>
+                                    <input id="undergraduate" type="checkbox" rel="undergraduate" onchange="change();">
+                                    Undergraduate
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="faculty" type="checkbox" rel="faculty" onchange="change();">
+                                    Faculty
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="graduate" type="checkbox" rel="graduate" onchange="change();">
+                                    Graduate
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="staff" type="checkbox" rel="staff" onchange="change();">
+                                    Staff
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Subject Filter-->
+                    <div style="background-color: #DFDFDF; width: 300px; height: 200px; margin-bottom: 10px;">
+                        <h5 style="padding-left: 20px; padding-top: 10px">Subject</h5>
+
+                        <div class="subject" style="padding-left: 35px">
+                            <div class="checkbox">
+                                <label>
+                                    <input id="research" type="checkbox" rel="research" onchange="change();">
+                                    Research
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="databases" type="checkbox" rel="databases" onchange="change();">
+                                    Databases
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="economics" type="checkbox" rel="economics" onchange="change();">
+                                    Economics
+                                </label>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input id="stem" type="checkbox" rel="stem" onchange="change();">
+                                    STEM
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                style="width: 1075px; height: 1120px; box-shadow: 3px 5px 5px #c4c4c4; display: inline-block; overflow-y: scroll">
+                <!--Group of div blocks for articulate workshops-->
+                <div class="result">
+
+                    <!--Individual div blocks for articulate workshop-->
+                    <div class="interactive graduate economics"
+                        style="margin-top: 15px; margin-left: 15px; margin-right: 15px; border-bottom: 2px solid #eee;">
+                        <div style="display: flex;">
+                            <div style="display: inline; margin-top: 5px;">
+                                <img src="../Static/Images/CA Course Image.jpg" alt="Avatar"
+                                    style="width:275px; height:180px">
+                            </div>
+                            <div style="display: inline; margin-left: 15px;">
+                                <span>
+                                    <a href="../Courses/Critical Analysis/CA.html">
+                                        <h3>Critical Analysis (Example Course)</h3>
+                                    </a>
+                                </span>
+                                <span>
+                                    <p>This interactive module is an example of what the
+                                        actual course will look like. This summary is just a text place holder.</p>
+                                </span>
+                                <span>
+                                    <p style="margin-top: -7px;"><b>Learning Resource Type: </b>
+                                        Interactive Course
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Audience: </b>
+                                        graduate
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Subject: </b>
+                                        Economics
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Author: </b></p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interactive faculty research"
+                        style="margin-top: 15px; margin-left: 15px; margin-right: 15px; border-bottom: 2px solid #eee;">
+                        <div style="display: flex;">
+                            <div style="display: inline; margin-top: 5px;">
+                                <img src="../Static/Images/SPCOM193 Course Image.jpg" alt="Avatar"
+                                    style="width:275px; height:180px">
+                            </div>
+                            <div style="display: inline; margin-left: 15px;">
+                                <span>
+                                    <a href="../Courses/Critical Analysis/CA.html">
+                                        <h3>Writing For Different Audiences</h3>
+                                    </a>
+                                </span>
+                                <span>
+                                    <p>This interactive module is an example of what the
+                                        actual course will look like. This summary is just a text place holder.</p>
+                                </span>
+                                <span>
+                                    <p style="margin-top: -7px;"><b>Learning Resource Type: </b>
+                                        Interactive Course
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Audience: </b>
+                                        Faculty
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Subject: </b>
+                                        Research
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Author: Dr. Nancy Johnston</b></p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interactive graduate stem"
+                        style="margin-top: 15px; margin-left: 15px; margin-right: 15px; border-bottom: 2px solid #eee;">
+                        <div style="display: flex;">
+                            <div style="display: inline; margin-top: 5px;">
+                                <img src="../Static/Images/CA Course Image.jpg" alt="Avatar"
+                                    style="width:275px; height:180px">
+                            </div>
+                            <div style="display: inline; margin-left: 15px;">
+                                <span>
+                                    <a href="../Courses/Critical Analysis/CA.html">
+                                        <h3>Integrating Quantitative Data SciComm</h3>
+                                    </a>
+                                </span>
+                                <span>
+                                    <p>This interactive module is an example of what the
+                                        actual course will look like. This summary is just a text place holder.</p>
+                                </span>
+                                <span>
+                                    <p style="margin-top: -7px;"><b>Learning Resource Type: </b>
+                                        Interactive Course
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Audience: </b>
+                                        Graduate
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Subject: </b>
+                                        STEM
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Author: Dr. Boba Samuels </b></p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="presentation undergraduate research"
+                        style="margin-top: 15px; margin-left: 15px; margin-right: 15px; border-bottom: 2px solid #eee;">
+                        <div style="display: flex;">
+                            <div style="display: inline; margin-top: 5px;">
+                                <img src="../Static/Images/SPCOM193 Course Image.jpg" alt="Avatar"
+                                    style="width:275px; height:180px">
+                            </div>
+                            <div style="display: inline; margin-left: 15px;">
+                                <span>
+                                    <a href="../Courses/Critical Analysis/CA.html">
+                                        <h3>Introduction to Online Communication</h3>
+                                    </a>
+                                </span>
+                                <span>
+                                    <p>This interactive module is an example of what the
+                                        actual course will look like. This summary is just a text place holder.</p>
+                                </span>
+                                <span>
+                                    <p style="margin-top: -7px;"><b>Learning Resource Type: </b>
+                                        Presentation
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Audience: </b>
+                                        Undergraduate
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Subject: </b>
+                                        Research
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Author: </b>Dr. Jordana Garbati </p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="infographic faculty databases"
+                        style="margin-top: 15px; margin-left: 15px; margin-right: 15px; border-bottom: 2px solid #eee;">
+                        <div style="display: flex;">
+                            <div style="display: inline; margin-top: 5px;">
+                                <img src="../Static/Images/CA Course Image.jpg" alt="Avatar"
+                                    style="width:275px; height:180px">
+                            </div>
+                            <div style="display: inline; margin-left: 15px;">
+                                <span>
+                                    <a href="../Courses/Critical Analysis/CA.html">
+                                        <h3>Sharing Research in the Age of Misinformation </h3>
+                                    </a>
+                                </span>
+                                <span>
+                                    <p>This interactive module is an example of what the
+                                        actual course will look like. This summary is just a text place holder.</p>
+                                </span>
+                                <span>
+                                    <p style="margin-top: -7px;"><b>Learning Resource Type: </b>
+                                        Infographic
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Audience: </b>
+                                        Faculty
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Subject: </b>
+                                        Database
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Author: </b>Dr. Emma Dunn </p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="handout undergraduate stem"
+                        style="margin-top: 15px; margin-left: 15px; margin-right: 15px; border-bottom: 2px solid #eee;">
+                        <div style="display: flex;">
+                            <div style="display: inline; margin-top: 5px;">
+                                <img src="../Static/Images/SPCOM193 Course Image.jpg" alt="Avatar"
+                                    style="width:275px; height:180px">
+                            </div>
+                            <div style="display: inline; margin-left: 15px;">
+                                <span>
+                                    <a href="../Courses/Critical Analysis/CA.html">
+                                        <h3>Clarity in Science Communication </h3>
+                                    </a>
+                                </span>
+                                <span>
+                                    <p>This interactive module is an example of what the
+                                        actual course will look like. This summary is just a text place holder.</p>
+                                </span>
+                                <span>
+                                    <p style="margin-top: -7px;"><b>Learning Resource Type: </b>
+                                        Handout
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Audience: </b>
+                                        Undergraduate
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Subject: </b>
+                                        STEM
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Author: </b>Elisabeth van Stam</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interactive graduate databases"
+                        style="margin-top: 15px; margin-left: 15px; margin-right: 15px; border-bottom: 2px solid #eee;">
+                        <div style="display: flex;">
+                            <div style="display: inline; margin-top: 5px;">
+                                <img src="../Static/Images/CA Course Image.jpg" alt="Avatar"
+                                    style="width:275px; height:180px">
+                            </div>
+                            <div style="display: inline; margin-left: 15px;">
+                                <span>
+                                    <a href="../Courses/Critical Analysis/CA.html">
+                                        <h3>Critical Analysis</h3>
+                                    </a>
+                                </span>
+                                <span>
+                                    <p>This interactive module is an example of what the
+                                        actual course will look like. This summary is just a text place holder.</p>
+                                </span>
+                                <span>
+                                    <p style="margin-top: -7px;"><b>Learning Resource Type: </b>
+                                        Interactive Course
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Audience: </b>
+                                        Graduate
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Subject: </b>
+                                        Databases
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Author: </b></p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="presentation staff research"
+                        style="margin-top: 15px; margin-left: 15px; margin-right: 15px; border-bottom: 2px solid #eee;">
+                        <div style="display: flex;">
+                            <div style="display: inline; margin-top: 5px;">
+                                <img src="../Static/Images/SPCOM193 Course Image.jpg" alt="Avatar"
+                                    style="width:275px; height:180px">
+                            </div>
+                            <div style="display: inline; margin-left: 15px;">
+                                <span>
+                                    <a href="../Courses/Critical Analysis/CA.html">
+                                        <h3>Spcom 193: Writing a Policy Brief</h3>
+                                    </a>
+                                </span>
+                                <span>
+                                    <p>This interactive module is an example of what the
+                                        actual course will look like. This summary is just a text place holder.</p>
+                                </span>
+                                <span>
+                                    <p style="margin-top: -7px;"><b>Learning Resource Type: </b>
+                                        Presentation
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Audience: </b>
+                                        Staff
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Subject: </b>
+                                        Research
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Author: </b></p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="handout graduate economics"
+                        style="margin-top: 15px; margin-left: 15px; margin-right: 15px; border-bottom: 2px solid #eee;">
+                        <div style="display: flex;">
+                            <div style="display: inline; margin-top: 5px;">
+                                <img src="../Static/Images/CA Course Image.jpg" alt="Avatar"
+                                    style="width:275px; height:180px">
+                            </div>
+                            <div style="display: inline; margin-left: 15px;">
+                                <span>
+                                    <a href="../Courses/Critical Analysis/CA.html">
+                                        <h3>Critical Analysis</h3>
+                                    </a>
+                                </span>
+                                <span>
+                                    <p>This interactive module is an example of what the
+                                        actual course will look like. This summary is just a text place holder.</p>
+                                </span>
+                                <span>
+                                    <p style="margin-top: -7px;"><b>Learning Resource Type: </b>
+                                        Handout
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Audience: </b>
+                                        Graduate
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Subject: </b>
+                                        Economics
+                                    </p>
+                                    <p style="margin-top: -18px;"><b>Author: </b></p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <div style="height: 200px; margin-top: 25px; background-color: rgb(161, 161, 161);">
+        <div>
+            <div style="display: inline-block; position: relative; top: -38px; left: 80px">
+                <img src="../Static/Images/URyerson.logo.png" height="70" alt="URyerson Logo">
+            </div>
+            <div style="display: inline-block; position: relative; top: -38px; left: 470px">
+                <img src="../Static/Images/uwaterloo.logo.png" height="60" alt="UWaterloo Logo">
+            </div>
+            <div style="display: inline-block; position: relative; top: -45px; left: 800px">
+                <img src="../Static/Images/UofT.logo.png" height="170" alt="UofT Logo">
+            </div>
+        </div>
+        <div>
+            <div style="position: absolute; top: 1780px; left: 650px">
+                <p style="color: rgb(255, 255, 255); text-align: center;">
+                    University of Waterloo
+                    <br>
+                    200 University Avenue West
+                    <br>
+                    Waterloo, ON, Canada N2L 3G1
+                </p>
+            </div>
+            <div style="position: absolute; top: 1780px; left: 55px;">
+                <p style="color: rgb(255, 255, 255); text-align: center;">
+                    Ryerson University
+                    <br>
+                    350 Victoria St
+                    <br>
+                    Toronto, ON, Canada M5B 2K3
+                </p>
+            </div>
+            <div style="position: absolute; top: 1780px; left: 1218px;">
+                <p style="color: rgb(255, 255, 255); text-align: center;">
+                    University of Toronto
+                    <br>
+                    27 King's College Cir
+                    <br>
+                    Toronto, ON, Canada M5S 1A4
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<!--
+<form style="padding-left: 35px;">
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                            <label for="vehicle1"> Interactive Course</label><br>
+                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                            <label for="vehicle2"> Infographic</label><br>
+                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                            <label for="vehicle3"> Handout</label><br>
+                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                            <label for="vehicle3"> Presentation Slides</label>
+                        </form>
+
+<form style="padding-left: 35px;">
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                            <label for="vehicle1"> Undergraduate</label><br>
+                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                            <label for="vehicle2"> Faculty</label><br>
+                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                            <label for="vehicle3"> Graduate</label><br>
+                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                            <label for="vehicle3"> Staff</label>
+                        </form>
+
+<form style="padding-left: 35px;">
+                            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                            <label for="vehicle1"> Research</label><br>
+                            <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+                            <label for="vehicle2"> Databases</label><br>
+                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                            <label for="vehicle3"> Economics</label><br>
+                            <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+                            <label for="vehicle3"> STEM</label>
+                        </form>
+-->
+
+ <!--
+                    <div class="flip-card interactive graduate economics">
+                        <a href="../Courses/Critical Analysis/CA.html">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="../Static/Images/CA Course Image.jpg" alt="Avatar"
+                                        style="width:310px;height:200px;">
+                                    <h2 style="padding-top: 15px; padding-left: 10px;">Critical Analysis</h2>
+                                    <div style="padding-left: 10px; position: absolute; bottom: 1px;">
+                                        <h5 style="display: inline-block;">Resource Type: </h5>
+                                        <p style="display: inline-block; font-size: 18px;">Interactive Course</p>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h5 style="padding-left: 6px; padding-top: 10px; display: inline-block;">Author:
+                                    </h5>
+                                    <p style="display: inline-block;">First Last, First Last, First Last</p>
+                                    <br>
+                                    <h5 style="padding-left: 6px; padding-top: 2px; display: inline-block;">Audience:
+                                    </h5>
+                                    <p style="display: inline-block;">Graduate, Undergraduate</p>
+                                    <br>
+                                    <h5 style="padding-left: 6px; padding-top: 2px; display: inline-block;">Subject:
+                                    </h5>
+                                    <p style="display: inline-block;">Economics, Math, Research</p>
+                                    <br>
+                                    <h5 style="padding-left: 7px; padding-top: 10px;">Summary: </h5>
+                                    <p style="padding-left: 7px;">This interactive module is an example of what the
+                                        actual course will look like. This summary is just a text place holder.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="flip-card interactive faculty research">
+                        <a href="../Courses/SPCOM WPB/SPCOM193.html">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="../Static/Images/SPCOM193 Course Image.jpg" alt="Avatar"
+                                        style="width:310px;height:200px;">
+                                    <h2 style="padding-top: 15px; padding-left: 10px;">Spcom 193: Writing a Policy Brief
+                                    </h2>
+                                    <div style="padding-left: 10px; position: absolute; bottom: 1px;">
+                                        <h5 style="display: inline-block;">Resource Type: </h5>
+                                        <p style="display: inline-block; font-size: 18px;">Infographic</p>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>John Doe</h1>
+                                    <p>Architect & Engineer</p>
+                                    <p>We love that guy</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="flip-card interactive graduate stem">
+                        <a href="../Courses/Critical Analysis/CA.html">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="../Static/Images/CA Course Image.jpg" alt="Avatar"
+                                        style="width:310px;height:200px;">
+                                    <h2 style="padding-top: 15px; padding-left: 10px;">Critical Analysis</h2>
+                                    <div style="padding-left: 10px; position: absolute; bottom: 1px;">
+                                        <h5 style="display: inline-block;">Resource Type: </h5>
+                                        <p style="display: inline-block;">Handout</p>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>John Doe</h1>
+                                    <p>Architect & Engineer</p>
+                                    <p>We love that guy</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="flip-card presentation undergraduate research">
+                        <a href="../Courses/Critical Analysis/CA.html">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="../Static/Images/SPCOM193 Course Image.jpg" alt="Avatar"
+                                        style="width:310px;height:200px;">
+                                    <h2 style="padding-top: 15px; padding-left: 10px;">Spcom 193: Writing a Policy Brief
+                                    </h2>
+                                    <div style="padding-left: 10px; position: absolute; bottom: 1px;">
+                                        <h5>Resource Type: </h5>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>John Doe</h1>
+                                    <p>Architect & Engineer</p>
+                                    <p>We love that guy</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="flip-card infographic faculty databases">
+                        <a href="../Courses/Critical Analysis/CA.html">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="../Static/Images/CA Course Image.jpg" alt="Avatar"
+                                        style="width:310px;height:200px;">
+                                    <h2 style="padding-top: 15px; padding-left: 10px;">Critical Analysis</h2>
+                                    <div style="padding-left: 10px; position: absolute; bottom: 1px;">
+                                        <h5>Resource Type: </h5>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>John Doe</h1>
+                                    <p>Architect & Engineer</p>
+                                    <p>We love that guy</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="flip-card handout undergraduate stem">
+                        <a href="../Courses/Critical Analysis/CA.html">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="../Static/Images/SPCOM193 Course Image.jpg" alt="Avatar"
+                                        style="width:310px;height:200px;">
+                                    <h2 style="padding-top: 15px; padding-left: 10px;">Spcom 193: Writing a Policy Brief
+                                    </h2>
+                                    <div style="padding-left: 10px; position: absolute; bottom: 1px;">
+                                        <h5>Resource Type: </h5>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>John Doe</h1>
+                                    <p>Architect & Engineer</p>
+                                    <p>We love that guy</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="flip-card interactive graduate databases">
+                        <a href="../Courses/Critical Analysis/CA.html">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="../Static/Images/CA Course Image.jpg" alt="Avatar"
+                                        style="width:310px;height:200px;">
+                                    <h2 style="padding-top: 15px; padding-left: 10px;">Critical Analysis</h2>
+                                    <div style="padding-left: 10px; position: absolute; bottom: 1px;">
+                                        <h5>Resource Type: </h5>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>John Doe</h1>
+                                    <p>Architect & Engineer</p>
+                                    <p>We love that guy</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="flip-card presentation staff research">
+                        <a href="../Courses/Critical Analysis/CA.html">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="../Static/Images/SPCOM193 Course Image.jpg" alt="Avatar"
+                                        style="width:310px;height:200px;">
+                                    <h2 style="padding-top: 15px; padding-left: 10px;">Spcom 193: Writing a Policy Brief
+                                    </h2>
+                                    <div style="padding-left: 10px; position: absolute; bottom: 1px;">
+                                        <h5>Resource Type: </h5>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>John Doe</h1>
+                                    <p>Architect & Engineer</p>
+                                    <p>We love that guy</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="flip-card handout graduate economics">
+                        <a href="../Courses/Critical Analysis/CA.html">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <img src="../Static/Images/CA Course Image.jpg" alt="Avatar"
+                                        style="width:310px;height:200px;">
+                                    <h2 style="padding-top: 15px; padding-left: 10px;">Critical Analysis</h2>
+                                    <div style="padding-left: 10px; position: absolute; bottom: 1px;">
+                                        <h5>Resource Type: </h5>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <h1>John Doe</h1>
+                                    <p>Architect & Engineer</p>
+                                    <p>We love that guy</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    -->
